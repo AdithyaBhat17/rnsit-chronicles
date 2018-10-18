@@ -1,14 +1,184 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face{
+  font-family: "Wavehaus";
+  src: url('./assets/fonts/Wavehaus-158ExtraBold.otf');
+}
+@font-face{
+  font-family: "Manrope";
+  src: url('./assets/fonts/regular.otf');
+  font-weight: normal;
+}
+@font-face{
+  font-family: "Manrope";
+  src: url('./assets/fonts/light.otf');
+  font-weight: lighter;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height:100%;
+  font-size: 16px;
+  background-color: #1c1052;
+}
+
+img{
+  max-width: 100%;
+}
+
+.navbar-default{
+  border : 0;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 15px 20px;
+}
+
+.navbar-brand>.logo{
+  width: 100px;
+}
+
+.navbar-right{
+  margin-top: 15px;
+}
+
+.navbar-right>li>a{
+  color: #22d5c3 !important;
+  font-weight: bold;
+  font-family: Manrope;
+  font-size: 14px;
+  text-align: center;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}
+
+.icon-bar{
+  background-color: #22d5c3 !important;
+}
+
+.icon-bar:nth-child(2){
+  width: 90%;
+} 
+
+.icon-bar:nth-child(3){
+  width: 60%;
+} 
+
+.App{
+  background-color: #1c1052;
+  height:100vh;
+}
+
+.blog-name{
+  color: #fff;
+  font-family: Wavehaus;
+  font-weight: bold;
+  margin-top:20vh;
+  font-size: 4em;
+}
+
+.about{
+  font-family: "Manrope";
+  color: #fff;
+}
+
+.start{
+  color: #1c1052;
+  background-color: #fff;
+  font-family: "Manrope";
+  text-decoration: none !important;
+  font-weight: bold;
+  padding:8px 12px; 
+  border-radius: 5px;
+  box-shadow: 5px 5px 25px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #1c1052;
+}
+
+/* blog css */
+
+.thumbnail{
+  background-color: #241664;
+  border:none;
+  color:#fff;
+  font-family: Manrope;
+  padding: 10px;
+  box-shadow: 5px 5px 25px 0 rgba(0,0,0,0.07);
+}
+
+h4{
+  font-weight: bold;
+  font-family: Manrope;
+}
+
+.social{
+  color: #f6f8f8;
+  font-weight: bold;
+  font-family: Wavehaus;
+}
+
+small{
+  font-size: 12px;
+}
+
+.read-more{
+  background-color: #1c1052;
+  color:#22d5c3;
+  padding: 4px 10px;
+  font-family: Manrope;
+  border-radius: 4px;
+}
+
+/* blog post */
+.article-img{
+  display: block;
+  margin: 0 auto;
+}
+
+.latest,.latest>a{
+  list-style: none;
+  margin:15px auto;
+  color: #22d5c3;
+}
+
+h3{
+  font-family: Wavehaus;
+  color: #fff;
+}
+
+@media only screen and (max-width:768px){
+  .navbar-default{
+    padding: 5px;
+  }
+  .navbar-default .navbar-toggle {
+    margin-top:25px;
+  }
+  .blog-name{
+    margin-top:15px;
+    font-size: 2.65em;
+  }
+  .about{
+    padding-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width:1440px){
+  .hero-img{
+    margin-top:10vh;
+  }
+  .blog-name{
+    margin-top:25vh;
+    font-size: 4.5em;
+  }
 }
