@@ -69,7 +69,7 @@ class BlogPost extends Component {
                                         
                                     </div>
                                     {article.contents.map((content,index) => (
-                                        <p key={index}>{content}</p>
+                                        <p style={content.length < 100 ? {fontWeight:`bold`,fontFamily:`Wavehaus`} : {fontWeight:`normal`}} key={index}>{content}</p>
                                     ))}
                                 </div>
                             ))}
