@@ -17,7 +17,7 @@
 .env.production.local
 .env
 /src/Firebase.js
-/src/PrivateRoutes.js
+/src/PrivateRoute.js
 /src/Routes.js
 
 npm-debug.log*
