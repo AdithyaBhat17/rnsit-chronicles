@@ -12,7 +12,9 @@ const Hero = () => {
                 <div className="col-md-6 col-md-pull-6">
                     <h1 className="blog-name">RNSIT Chronicles</h1>
                     <p className="about">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat totam commodi veritatis exercitationem quidem sit, dignissimos mollitia adipisci, ex sequi dolor. Unde placeat iusto eius recusandae? Consectetur animi odio beatae, numquam soluta corrupti porro reiciendis ex aliquid, nam labore doloribus!
+                        Welcome to the official happening page of RNSIT! Here, you can read about anything and 
+                        everything that goes on in the campus, technical or not. Topics covered will include events, 
+                        fests, projects and many other topics of interest. Happy reading!
                         <br/><br/>
                     <Link to="/blog" className="start">Start Reading</Link>
                     </p>
