@@ -1,15 +1,28 @@
 {
   "short_name": "RNSIT Chronicles",
   "name": "RNSIT Chronicles",
+  "description":"Welcome to the official happening page of RNSIT! Here, you can read about anything and everything that goes on in the campus, technical or not. Topics covered will include events, fests, projects and many other topics of interest. Happy reading!",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "\/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "\/apple-touch-icon.png",
+      "sizes": "144x144",
+      "type": "image\/png"
+    },
+    {
+      "src": "\/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "./index.html",
+  "scope":".",
   "display": "standalone",
   "theme_color": "#1c1052",
+  "orientation":"portrait",
   "background_color": "#1c1052"
 }
