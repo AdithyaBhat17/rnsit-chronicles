@@ -90,8 +90,16 @@ img{
   color: #fff;
   font-family: Wavehaus;
   font-weight: bold;
-  margin-top:20vh;
-  font-size: 3em;
+  margin-top:1px;
+  font-size: 2em;
+}
+
+input[type=file] {
+  padding: 6px;
+}
+
+.contact-img{
+  margin-top:10vh;
 }
 
 .about{
@@ -352,8 +360,11 @@ input[type="submit"]{
     font-size: 2.65em;
   }
   .contact-h1{
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 2.15em;
+  }
+  .contact-img{
+    margin-top:0
   }
   .about{
     padding-bottom: 10px;
@@ -401,8 +412,8 @@ input[type="submit"]{
     font-size: 4.5em;
   }
   .contact-h1{
-    margin-top:23vh;
-    font-size: 4em;
+    margin-top:10vh;
+    font-size: 3.5em;
   }
   .contact-img{
     margin-top:16vh;
@@ -414,8 +425,8 @@ input[type="submit"]{
     width: 80%;
   }
   .contact-h1{
-    margin-top:23vh;
-    font-size: 6em;
+    margin-top:15vh;
+    font-size: 4.25em;
   }
   body{
     font-size: 18px;
@@ -450,8 +461,11 @@ input[type="submit"]{
     margin-top: 15vh 
   }
   .contact-h1{
-    margin-top:23vh;
+    margin-top:20vh;
     font-size: 6em;
+  }
+  .contact-img{
+    margin-top: 20vh;
   }
   body{
     font-size: 18px;
