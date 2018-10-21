@@ -2,11 +2,15 @@ import React from 'react';
 import Navbar from './Navbar';
 import contact from './assets/contact.svg';
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
 
 export default function App(){
     return (
       <div className="App">
         <Navbar />
+        <Helmet>
+            <title>Contact | RNSIT Chronicles</title>
+        </Helmet>
         <div className="container">
             <div className="row">
                 <div className="col-md-6 col-md-push-6">

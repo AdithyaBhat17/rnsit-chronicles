@@ -16,9 +16,10 @@
 .env.test.local
 .env.production.local
 .env
+
 /src/Firebase.js
-/src/PrivateRoute.js
 /src/Routes.js
+/src/PrivateRoute.js
 
 npm-debug.log*
 yarn-debug.log*
