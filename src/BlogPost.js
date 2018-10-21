@@ -40,7 +40,7 @@ class BlogPost extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-9 col-sm-12">
-                        <div className="thumbnail">
+                        <div className="thumbnail blog-post">
                             {articles.map(article => article.path === this.props.match.params.path && (
                                 <div key={article.title}>   
                                     <img src={article.image} alt={article.title} className="article-img"/>                                 

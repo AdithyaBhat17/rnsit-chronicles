@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './App';
 import Blogs from './Blogs';
+import Contact from './Contact';
 import BlogPost from './BlogPost';
 import PrivateRoute from './PrivateRoute';
 import AddBlog from './AddBlog';
@@ -41,6 +42,7 @@ export default class Routes extends React.Component{
                 <React.Fragment>
                     <Route exact path="/" component={App} />
                     <Route exact path="/blog" component={Blogs} />
+                    <Route exact path="/contact" component={Contact} />
                     <Route path="/blog/:path" component={BlogPost} />
                     <PrivateRoute exact path="/yote" component={AddBlog} authenticated={authenticated}/>
                     <Route exact path="/yeet" component={Login} />

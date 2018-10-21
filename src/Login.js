@@ -8,7 +8,7 @@ class Login extends Component {
         event.preventDefault();
         const { email, password } = event.target.elements;
         try {
-          const user = config
+          config
             .auth()
             .signInWithEmailAndPassword(email.value, password.value);
           this.props.history.push('/yote');

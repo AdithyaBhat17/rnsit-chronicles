@@ -86,6 +86,14 @@ img{
   font-size: 4em;
 }
 
+.contact-h1{
+  color: #fff;
+  font-family: Wavehaus;
+  font-weight: bold;
+  margin-top:20vh;
+  font-size: 3em;
+}
+
 .about{
   font-family: "Manrope";
   color: #fff;
@@ -343,6 +351,10 @@ input[type="submit"]{
     margin-top:15px;
     font-size: 2.65em;
   }
+  .contact-h1{
+    margin-top: 15px;
+    font-size: 2.15em;
+  }
   .about{
     padding-bottom: 10px;
   }
@@ -358,25 +370,116 @@ input[type="submit"]{
   }
 }
 
+@media only screen and (min-width:769px) and (max-width:991px){
+  .hero-img{
+    margin-top: 5vh;
+  }
+  .contact-h1,.blog-name{
+    font-size: 5em;
+    margin-top:25px
+  }
+  .about{
+    margin-bottom: 25px;
+  }
+}
+
 @media only screen and (min-width:992px) and (max-width:1199px){
   .hero-img{
     margin-top: 15vh;
+  }
+  .contact-h1{
+    font-size: 4em;
   }
 }
 
 @media only screen and (min-width:1440px){
   .hero-img{
-    margin-top:10vh;
+    margin-top:13vh;
   }
   .blog-name{
     margin-top:25vh;
     font-size: 4.5em;
+  }
+  .contact-h1{
+    margin-top:23vh;
+    font-size: 4em;
+  }
+  .contact-img{
+    margin-top:16vh;
   }
 }
 
 @media only screen and (min-width:1920px){
   .container{
     width: 80%;
+  }
+  .contact-h1{
+    margin-top:23vh;
+    font-size: 6em;
+  }
+  body{
+    font-size: 18px;
+  }
+  .about{
+    font-size: 1.2em;
+  }
+  .hero{
+    margin-top:20vh;
+  }
+  .loginform{
+    margin-top:30vh
+  }
+}
+
+@media only screen and (min-width:2560px){
+  .logo{
+    width: 200px !important;
+  }
+  .navbar-right>li>a{
+    font-size: 24px !important; 
+    margin-top: 20px;
+  }
+  .container{
+    width: 80%;
+  }
+  .blog-name{
+    font-size: 7em;
+    margin-top: 30vh;
+  }
+  .hero-img{
+    margin-top: 15vh 
+  }
+  .contact-h1{
+    margin-top:23vh;
+    font-size: 6em;
+  }
+  body{
+    font-size: 18px;
+  }
+  .about{
+    font-size: 1.6em;
+  }
+  .cards{
+    padding: 15px;
+    height: 650px;
+    font-size: 2em
+  }
+  .blog-post{
+    font-size: 1.5em;
+    margin-top:25px;
+    padding: 15px;
+  }
+  .blog-post>img{
+    width: 100%;
+  }
+  small{
+    font-size: 0.5em;
+  }
+  h4{
+    font-size: 1em;
+  }
+  .cards>img{
+    height: 400px;
   }
   .hero{
     margin-top:20vh;
