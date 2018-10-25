@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import { db } from './Firebase';
-import searchimg from './assets/search.svg'
+import searchimg from './assets/search.svg';
+import { Helmet } from 'react-helmet';
 
 class Search extends Component {
   state = {
@@ -31,6 +32,9 @@ class Search extends Component {
     const { articles, keyword } = this.state;
     return (
       <div>
+          <Helmet>
+              <title>Search | RNS Chronicles</title>
+          </Helmet>
          <Navbar />
          <div className="container">
             <input

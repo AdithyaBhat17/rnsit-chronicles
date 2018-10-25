@@ -1,10 +1,14 @@
 import React from 'react';
 import hero from './assets/hero.svg';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Hero = () => {
     return(
         <div className="container">
+            <Helmet>
+                <title>RNS Chronicles</title>
+            </Helmet>
             <div className="row">
                 <div className="col-md-6 col-md-push-6">
                     <img src={hero} alt="Blog" className="hero-img"/>

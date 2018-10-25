@@ -17,7 +17,8 @@ class BlogPost extends Component {
         db.collection('articles')
         .get()
         .then(collection => {
-          const articles = collection.docs.map(doc => doc.data())
+          const articles = collection.docs.map(doc => doc.data());
+          console.log(articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date));
           this.setState({articles})
           console.log(this.state)
         })
