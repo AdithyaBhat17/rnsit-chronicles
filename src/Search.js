@@ -47,7 +47,7 @@ class Search extends Component {
             <div className="row">
                 {articles.map(article => (keyword.length > 1 && article.title.toLowerCase().includes(keyword.toLowerCase())) && (
                     <div key={article.path} className="col-md-4 col-sm-12">
-                        <div className="thumbnail">
+                        <div className="thumbnail cards">
                             <img src={article.image} alt={article.title} className="card-img"/>
                             <h4>{article.title}</h4>
                             <p>

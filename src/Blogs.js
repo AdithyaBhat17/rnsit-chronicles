@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { db } from './Firebase';
 import Footer from './Footer';
+import { OrbitSpinner } from 'react-epic-spinners';
 
 class Blogs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      loading: true
     }
   }
 
@@ -19,13 +21,14 @@ class Blogs extends Component {
       const articles = collection.docs.map(doc => doc.data());
       // localeCompare function helps sort strings TODO - read more on localeCompare 
       console.log(articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date));
-      this.setState({articles})
+      this.setState({articles,loading:false})
       console.log(this.state)
     })
   }
 
   render() {
-    const { articles } = this.state;
+    const { articles, loading } = this.state;
+    if(loading) return <OrbitSpinner  className="loading" color="#22d5c3" />
     return (
       <div>
         <Navbar />
@@ -37,7 +40,12 @@ class Blogs extends Component {
                       <img src={article.image} alt={article.title} className="card-img"/>
                       <h4>{article.title}</h4>
                       <p>
-                        <a className="social" href={article.social}>{article.author}</a>&nbsp;<small>{article.date}</small>
+                        <a className="social"
+                         target="_blank" rel="noopener noreferrer"
+                         href={article.social}>
+                         {article.author}
+                        </a>
+                        &nbsp;<small>{article.date}</small>
                       </p>
                       <Link className="read-more" to={`/blog/${article.path}`}>read here</Link>
                   </div>
