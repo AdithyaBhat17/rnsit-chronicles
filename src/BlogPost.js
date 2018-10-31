@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import { db } from './Firebase';
@@ -21,10 +22,14 @@ class BlogPost extends Component {
         .get()
         .then(collection => {
           const articles = collection.docs.map(doc => doc.data());
-          console.log(articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date));
+          articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date);
           this.setState({articles, loading: false})
-          console.log(this.state)
+//           console.log(this.state)
         })
+    }
+    
+    componentDidUpdate() {
+        ReactDOM.findDOMNode(this).scrollIntoView()
     }
 
     render() {
