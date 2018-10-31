@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { db } from './Firebase';
@@ -20,10 +21,14 @@ class Blogs extends Component {
     .then(collection => {
       const articles = collection.docs.map(doc => doc.data());
       // localeCompare function helps sort strings TODO - read more on localeCompare 
-      console.log(articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date));
+      articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date);
       this.setState({articles,loading:false})
-      console.log(this.state)
+//       console.log(this.state)
     })
+  }
+  
+  componentDidUpdate() {
+        ReactDOM.findDOMNode(this).scrollIntoView()
   }
 
   render() {
