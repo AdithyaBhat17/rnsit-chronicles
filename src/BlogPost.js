@@ -62,7 +62,10 @@ class BlogPost extends Component {
                                      path={article.path}
                                      />
                                     {article.contents.map((content,index) => (
-                                        <p style={content.length < 100 ? {fontWeight:`bold`,fontFamily:`Wavehaus`} : {fontWeight:`normal`}} key={index}>{content}</p>
+                                        <p
+                                         style={content.length < 100 ? {fontWeight:`bold`,fontFamily:`Wavehaus`} : {fontWeight:`normal`}} 
+                                         key={index}
+                                         dangerouslySetInnerHTML={{__html: content}}></p>
                                     ))}
                                 </div>
                             ))}
