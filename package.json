@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dotenv": "^6.1.0",
-    "firebase": "^5.5.4",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "dotenv": "^6.2.0",
+    "firebase": "^5.11.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-epic-spinners": "^0.2.1",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^5.2.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5"
   },
