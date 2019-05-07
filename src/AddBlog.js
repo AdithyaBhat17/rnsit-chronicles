@@ -3,41 +3,38 @@ import Navbar from './Navbar';
 import { db } from "./Firebase";
 import { storage } from './Firebase';
 
-class AddBlog extends Component {
-    constructor(props){
-        super(props);
-        this.addBlog = this.addBlog.bind(this);
+const addBlog = async (props, e) => {
+    e.preventDefault()
+    let image = e.target.image.files[0]
+    const storageRef = storage.ref().child('images/' + image.name)
+    let blog = {
+        author: e.target.author.value,
+        contents: e.target.contents.value.split('\n'),
+        date: new Date().toISOString().substring(0, 10),
+        social: e.target.social.value,
+        title: e.target.title.value,
+        path: e.target.path.value
     }
+    await storageRef.put(image)
+    .then(() => storageRef.getDownloadURL().then(url => {
+        return db.collection('articles').add({
+            ...blog,
+            image: url
+        })
+    }))
+    
+    props.history.push('/blog')
+}
 
-    addBlog = async (e) => {
-        e.preventDefault()
-        let image = e.target.image.files[0]
-        const storageRef = storage.ref().child('images/' + image.name)
-        let blog = {
-            author: e.target.author.value,
-            contents: e.target.contents.value.split('\n'),
-            date: new Date().toISOString().substring(0, 10),
-            social: e.target.social.value,
-            title: e.target.title.value,
-            path: e.target.path.value
-        }
-        await storageRef.put(image)
-        .then(() => storageRef.getDownloadURL().then(url => {
-            return db.collection('articles').add({
-                ...blog,
-                image: url
-            })
-        }))
-        
-        this.props.history.push('/blog')
-    }
-
-    render() {
-        return (
+const AddBlog = (props) => {
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    return (
         <div>
             <Navbar />
             <div className="container">
-                <form className="form" encType="multipart/form-data" onSubmit={(e) =>this.addBlog(e)}>
+                <form className="form" encType="multipart/form-data" onSubmit={(e) =>addBlog(props, e)}>
                     <div className="form-group">
                         <label htmlFor="title">Title of your article</label>
                         <input type="text"  required className="form-control loginbar" name="title" placeholder="Donald Trump and the Power of Disappointment"/>
@@ -70,8 +67,7 @@ class AddBlog extends Component {
                 </form>
             </div>
         </div>
-        );
-    }
+    )
 }
 
 export default AddBlog;
