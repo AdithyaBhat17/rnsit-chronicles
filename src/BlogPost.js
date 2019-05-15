@@ -25,8 +25,6 @@ const BlogPost = (props) => {
 
     React.useEffect(() => {
         dispatch({type: 'LOADING'})
-        console.log('rendered')
-        console.log(props.location.prevPath)
         props.location.prevPath !== '/blog' ? db.collection('articles')
         .get()
         .then(collection => {
