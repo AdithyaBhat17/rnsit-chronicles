@@ -1,31 +1,17 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
-import { db } from './Firebase';
-import { Helmet } from 'react-helmet';
-import Footer from './Footer';
-import SharingButtons from './ShareButtons';
-import { OrbitSpinner } from 'react-epic-spinners';
+import React from 'react'
+import Navbar from './Navbar'
+import { Link } from 'react-router-dom'
+import { db } from './Firebase'
+import { Helmet } from 'react-helmet'
+import Footer from './Footer'
+import SharingButtons from './ShareButtons'
+import { OrbitSpinner } from 'react-epic-spinners'
+import { blogReducer } from './Blogs'
 
 // move this reducer function to Blogs.js and use context to share data
+// const 
 
-const blogReducer = (state, action) => {
-    switch(action.type) {
-        case 'LOADING':
-            return {
-                ...state,
-                loading: true
-            }
-        case 'LOADED': {
-            return {
-                ...state,
-                loading: false,
-                articles: action.articles
-            }
-        }
-    }
-}
+
 
 const BlogPost = (props) => {
     const [state, dispatch] = React.useReducer(blogReducer, {
@@ -39,14 +25,17 @@ const BlogPost = (props) => {
 
     React.useEffect(() => {
         dispatch({type: 'LOADING'})
-        db.collection('articles')
+        console.log('rendered')
+        console.log(props.location.prevPath)
+        props.location.prevPath !== '/blog' ? db.collection('articles')
         .get()
         .then(collection => {
           const articles = collection.docs.map(doc => doc.data());
-          articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date);
+          console.log('made a network call')
+          articles.sort((a,b) => b.date.localeCompare(a.date));
           dispatch({type: 'LOADED', articles})
 //           console.log(this.state)
-        })
+        }) : console.log(props.location.articles) || dispatch({type: 'LOADED', articles: props.location.articles})
     }, [])
 
     const { loading, articles } = state
