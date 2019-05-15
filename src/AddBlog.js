@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import { db } from "./Firebase";
 import { storage } from './Firebase';
@@ -27,11 +27,12 @@ const addBlog = async (props, e) => {
 }
 
 const AddBlog = (props) => {
-    React.useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    const containerRef = React.useRef()
+    React.useLayoutEffect(() => {
+        containerRef.current.scrollTop = 0
+    })
     return (
-        <div>
+        <div ref={containerRef}>
             <Navbar />
             <div className="container">
                 <form className="form" encType="multipart/form-data" onSubmit={(e) =>addBlog(props, e)}>
@@ -43,10 +44,6 @@ const AddBlog = (props) => {
                         <label htmlFor="path">Path (Note that this will be the URI for your article)</label>
                         <input type="text" name="path" required className="form-control loginbar" placeholder="donald-trump"/>
                     </div>
-                    {/* <div className="form-group">
-                        <label htmlFor="date">When was this article written?</label>
-                        <input type="date"  name="date" className="form-control loginbar"/>
-                    </div> */}
                     <div className="form-group">
                         <label htmlFor="author">Who wrote this article</label>
                         <input type="text" name="author" required className="form-control loginbar" placeholder="Hillary Clinton"/>

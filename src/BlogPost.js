@@ -8,36 +8,54 @@ import Footer from './Footer';
 import SharingButtons from './ShareButtons';
 import { OrbitSpinner } from 'react-epic-spinners';
 
-class BlogPost extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          articles: [],
-          loading: true
+// move this reducer function to Blogs.js and use context to share data
+
+const blogReducer = (state, action) => {
+    switch(action.type) {
+        case 'LOADING':
+            return {
+                ...state,
+                loading: true
+            }
+        case 'LOADED': {
+            return {
+                ...state,
+                loading: false,
+                articles: action.articles
+            }
         }
     }
-    
-    componentDidMount(){
+}
+
+const BlogPost = (props) => {
+    const [state, dispatch] = React.useReducer(blogReducer, {
+        articles: undefined,
+        loading: true
+    })
+
+    React.useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, [props.match.params.path])
+
+    React.useEffect(() => {
+        dispatch({type: 'LOADING'})
         db.collection('articles')
         .get()
         .then(collection => {
           const articles = collection.docs.map(doc => doc.data());
           articles.sort((a,b) => b.date.localeCompare(a.date)).map(article => article.date);
-          this.setState({articles, loading: false})
+          dispatch({type: 'LOADED', articles})
 //           console.log(this.state)
         })
-    }
-    
-    componentDidUpdate() {
-        ReactDOM.findDOMNode(this).scrollIntoView()
-    }
+    }, [])
 
-    render() {
-        const { articles, loading } = this.state;
-        if(loading) return <OrbitSpinner  className="loading" color="#22d5c3" />
-        return (
+    const { loading, articles } = state
+
+    if(loading) return <OrbitSpinner  className="loading" color="#22d5c3" />
+
+    return (
         <div>
-            {articles.map(article => article.path === this.props.match.params.path && (
+            {articles.map(article => article.path === props.match.params.path && (
                 <Helmet key={article.path}>                
                     <title>{article.title}</title>
                     <meta name="description" content={article.contents[0]} />
@@ -51,7 +69,7 @@ class BlogPost extends Component {
                 <div className="row">
                     <div className="col-md-9 col-sm-12">
                         <div className="thumbnail blog-post">
-                            {articles.map(article => article.path === this.props.match.params.path && (
+                            {articles.map(article => article.path === props.match.params.path && (
                                 <div key={article.title}>   
                                     <img src={article.image} alt={article.title} className="article-img"/>                                 
                                     <h1 style={{fontWeight:`bold`}}>{article.title}</h1>
@@ -85,8 +103,7 @@ class BlogPost extends Component {
             </div>
             <Footer />
         </div>
-        );
-    }
+    );
 }
 
 export default BlogPost;
