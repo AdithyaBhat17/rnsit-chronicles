@@ -27,7 +27,6 @@ const BlogPost = (props) => {
           console.log('made a network call')
           articles.sort((a,b) => b.date.localeCompare(a.date));
           dispatch({type: 'LOADED', articles})
-//           console.log(this.state)
         }) : dispatch({type: 'LOADED', articles: props.location.articles})
     }, [])
 
