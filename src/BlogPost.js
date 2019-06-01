@@ -8,11 +8,6 @@ import SharingButtons from './ShareButtons'
 import { OrbitSpinner } from 'react-epic-spinners'
 import { blogReducer } from './Blogs'
 
-// move this reducer function to Blogs.js and use context to share data
-// const 
-
-
-
 const BlogPost = (props) => {
     const [state, dispatch] = React.useReducer(blogReducer, {
         articles: undefined,
@@ -33,7 +28,7 @@ const BlogPost = (props) => {
           articles.sort((a,b) => b.date.localeCompare(a.date));
           dispatch({type: 'LOADED', articles})
 //           console.log(this.state)
-        }) : console.log(props.location.articles) || dispatch({type: 'LOADED', articles: props.location.articles})
+        }) : dispatch({type: 'LOADED', articles: props.location.articles})
     }, [])
 
     const { loading, articles } = state
