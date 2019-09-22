@@ -1,9 +1,9 @@
-import React, { lazy, Suspense, useEffect, useState, useReducer } from 'react'
+import React, { lazy, Suspense, useEffect, useReducer } from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import App from './App'
 import config from './Firebase'
 import PrivateRoute from './PrivateRoute'
-import { AtomSpinner, FulfillingSquareSpinner } from 'react-epic-spinners'
+import { AtomSpinner } from 'react-epic-spinners'
 
 const Blogs = lazy(() => import('./Blogs'))
 const Contact = lazy(() => import('./Contact'))
