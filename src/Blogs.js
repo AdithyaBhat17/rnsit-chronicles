@@ -43,7 +43,6 @@ const Blogs = (props) => {
       const articles = await collection.docs.map(doc => doc.data());
       articles.sort((a,b) => b.date.localeCompare(a.date));
       dispatch({type: 'LOADED', articles})
-//           console.log(this.state)
     })
   }, [])
 

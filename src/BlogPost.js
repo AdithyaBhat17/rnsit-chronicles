@@ -24,7 +24,6 @@ const BlogPost = (props) => {
         .get()
         .then(collection => {
           const articles = collection.docs.map(doc => doc.data());
-          console.log('made a network call')
           articles.sort((a,b) => b.date.localeCompare(a.date));
           dispatch({type: 'LOADED', articles})
         }) : dispatch({type: 'LOADED', articles: props.location.articles})

@@ -24,7 +24,6 @@ class Search extends Component {
     .then(collection => {
       const articles = collection.docs.map(doc => doc.data())
       this.setState({articles})
-      console.log(this.state)
     })
   }
 

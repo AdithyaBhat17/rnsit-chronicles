@@ -34,11 +34,9 @@ const reducer = (state = initialState, action) => {
 
 export default function Routes (props) {
     const [state, dispatch] = useReducer(reducer, initialState)
-    console.log(state)
 
     useEffect(() => {
       dispatch({type: 'loading', loading: true})
-      console.log('ran effect')
       config.auth().onAuthStateChanged(user => {
         if(user) 
           dispatch({
