@@ -49,8 +49,11 @@
      crossorigin="anonymous">
     </script>
     <script>
-      if(!window.location.port && typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object')
-        __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function () {};
+      if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+        for (let [key, value] of Object.entries(window.__REACT_DEVTOOLS_GLOBAL_HOOK__)) {
+          window.__REACT_DEVTOOLS_GLOBAL_HOOK__[key] = typeof value == "function" ? () => {} : null;
+        }
+      }
     </script>
   </body>
 </html>
