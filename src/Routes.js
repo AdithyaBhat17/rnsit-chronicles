@@ -62,7 +62,7 @@ export default function Routes (props) {
               <Route exact path="/contact" component={() => <Contact />} />
               <Route path="/blog/:path" component={(props) => <BlogPost {...props}/>} />
               <PrivateRoute exact path="/yote" component={AddBlog} authenticated={authenticated}/>
-              <Route exact path="/yeet" component={() => <Login />} />
+              <Route exact path="/yeet" component={(props) => <Login {...props} />} />
               <Route path="/search" component={() => <Search />} />
           </React.Fragment>
         </Router>

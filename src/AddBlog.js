@@ -28,6 +28,7 @@ const addBlog = async (props, e) => {
 
 const AddBlog = (props) => {
     const containerRef = React.useRef()
+
     React.useLayoutEffect(() => {
         containerRef.current.scrollTop = 0
     })
