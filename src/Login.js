@@ -8,10 +8,10 @@ const Login = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const logIn = (event) => {
+    const logIn = async (event) => {
         event.preventDefault();
         try {
-          config
+          await config
             .auth()
             .signInWithEmailAndPassword(email, password);
           props.history.push('/yote');
