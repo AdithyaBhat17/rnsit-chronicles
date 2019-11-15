@@ -28,6 +28,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "env-cmd": "^8.0.2"
+    "env-cmd": "^10.0.1"
   }
 }
