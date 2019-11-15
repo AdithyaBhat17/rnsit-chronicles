@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase": "^7.2.1",
+    "firebase": "^7.4.0",
     "react-dom": "^16.10.2",
     "react": "^16.10.2",
     "react-epic-spinners": "^0.2.1",
