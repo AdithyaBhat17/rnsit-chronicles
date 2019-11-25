@@ -32,12 +32,12 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default function Routes (props) {
+export default function Routes () {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
       dispatch({type: 'loading', loading: true})
-      config.auth().onAuthStateChanged(user => {
+      let unsubscribe = config.auth().onAuthStateChanged(user => {
         if(user) 
           dispatch({
             type: 'authenticated',
@@ -46,6 +46,8 @@ export default function Routes (props) {
         else 
           dispatch({type: 'loading', loading: false})
       })
+
+      return () => unsubscribe()
     }, [])   
 
     const { authenticated, loading } = state

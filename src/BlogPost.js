@@ -27,7 +27,7 @@ const BlogPost = (props) => {
           articles.sort((a,b) => b.date.localeCompare(a.date));
           dispatch({type: 'LOADED', articles})
         }) : dispatch({type: 'LOADED', articles: props.location.articles})
-    }, [])
+    }, [props.location.prevPath, props.location.articles])
 
     const { loading, articles } = state
 
